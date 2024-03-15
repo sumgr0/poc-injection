@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+</head>
+<body>
+  <div id="login-form-container"></div>
+
+  <script>
+    // Function to handle form submission
+    function handleSubmit() {
+      const username = document.getElementById('username-input').value;
+      const password = document.getElementById('password-input').value;
+
+      // Your logic for handling the submitted username and password goes here
+      console.log('Submitted Username:', username);
+      console.log('Submitted Password:', password);
+
+      // For demonstration purposes, you can redirect the user to another page
+      // window.location.href = 'https://example.com/welcome';
+    }
+
+    // Load the SVG file containing the login form
+    fetch('login.svg')
+      .then(response => response.text())
+      .then(svgText => {
+        document.getElementById('login-form-container').innerHTML = svgText;
+        // Add event listener to the submit button
+        document.getElementById('submit-button').addEventListener('click', handleSubmit);
+      })
+      .catch(error => {
+        console.error('Error loading SVG:', error);
+      });
+  </script>
+</body>
+</html>
