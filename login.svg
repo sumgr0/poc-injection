@@ -23,6 +23,11 @@
   <text id="password-text" x="170" y="140" font-family="Arial" font-size="14" fill="#000000">[Your Password]</text>
 
   <!-- Submit Button -->
-  <rect x="170" y="160" width="60" height="30" fill="#007bff" stroke="#000000" stroke-width="1"/>
-  <text id="submit-button" x="200" y="180" font-family="Arial" font-size="14" fill="#ffffff">Submit</text>
+  <rect id="submit-button" x="170" y="160" width="60" height="30" fill="#007bff" stroke="#000000" stroke-width="1"/>
+  <text x="200" y="180" font-family="Arial" font-size="14" fill="#ffffff">Submit</text>
+
+  <!-- Hyperlink to index.html -->
+  <a xlink:href="index.html">
+    <text x="20" y="20" font-family="Arial" font-size="12" fill="#0000ff">Return to Homepage</text>
+  </a>
 </svg>
