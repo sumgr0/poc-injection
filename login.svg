@@ -1,0 +1,28 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+
+  <!-- Form Container -->
+  <rect x="50" y="50" width="300" height="100" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+
+  <!-- Title -->
+  <text x="200" y="80" font-family="Arial" font-size="16" text-anchor="middle">Login Form</text>
+
+  <!-- Username Label -->
+  <text x="100" y="110" font-family="Arial" font-size="14">Username:</text>
+  <!-- Username Input -->
+  <rect x="160" y="95" width="160" height="20" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <!-- Username Text -->
+  <text x="170" y="110" font-family="Arial" font-size="14" fill="#000000">[Your Username]</text>
+
+  <!-- Password Label -->
+  <text x="100" y="140" font-family="Arial" font-size="14">Password:</text>
+  <!-- Password Input -->
+  <rect x="160" y="125" width="160" height="20" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <!-- Password Text -->
+  <text x="170" y="140" font-family="Arial" font-size="14" fill="#000000">[Your Password]</text>
+
+  <!-- Submit Button -->
+  <rect x="170" y="160" width="60" height="30" fill="#007bff" stroke="#000000" stroke-width="1"/>
+  <text x="200" y="180" font-family="Arial" font-size="14" fill="#ffffff">Submit</text>
+</svg>
