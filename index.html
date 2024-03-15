@@ -6,39 +6,58 @@
   <title>Login Form</title>
 </head>
 <body>
-  <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
-    <!-- SVG code for the login form goes here -->
+  <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
     <!-- Background -->
-    <rect width="100%" height="100%" fill="#f0f0f0"/>
+    <rect width="100%" height="100%" fill="#f0f0f0" />
 
-    <!-- Form Container -->
-    <rect x="50" y="50" width="300" height="100" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <!-- Login Form -->
+    <foreignObject x="50" y="50" width="300" height="100">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <form id="login-form">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" /><br />
 
-    <!-- Title -->
-    <text x="200" y="80" font-family="Arial" font-size="16" text-anchor="middle">Login Form</text>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" /><br />
 
-    <!-- Username Label -->
-    <text x="100" y="110" font-family="Arial" font-size="14">Username:</text>
-    <!-- Username Input -->
-    <rect x="160" y="95" width="160" height="20" fill="#ffffff" stroke="#000000" stroke-width="1"/>
-    <!-- Username Text -->
-    <text id="username-text" x="170" y="110" font-family="Arial" font-size="14" fill="#000000">[Your Username]</text>
-
-    <!-- Password Label -->
-    <text x="100" y="140" font-family="Arial" font-size="14">Password:</text>
-    <!-- Password Input -->
-    <rect x="160" y="125" width="160" height="20" fill="#ffffff" stroke="#000000" stroke-width="1"/>
-    <!-- Password Text -->
-    <text id="password-text" x="170" y="140" font-family="Arial" font-size="14" fill="#000000">[Your Password]</text>
-
-    <!-- Submit Button -->
-    <rect id="submit-button" x="170" y="160" width="60" height="30" fill="#007bff" stroke="#000000" stroke-width="1"/>
-    <text x="200" y="180" font-family="Arial" font-size="14" fill="#ffffff">Submit</text>
-
-    <!-- Hyperlink to index.html -->
-    <a xlink:href="index.html">
-      <text x="20" y="20" font-family="Arial" font-size="12" fill="#0000ff">Return to Homepage</text>
-    </a>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </foreignObject>
   </svg>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Retrieve username and password values
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Send the data to the server-side script
+      const formData = new FormData();
+      formData.append('username', username);
+      formData.append('password', password);
+
+      fetch('save_credentials.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Data saved:', data);
+        // Optionally, redirect the user to another page
+        // window.location.href = 'https://example.com/welcome';
+      })
+      .catch(error => {
+        console.error('There was a problem saving the data:', error);
+      });
+    });
+  </script>
 </body>
 </html>
